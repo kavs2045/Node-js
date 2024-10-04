@@ -1,15 +1,35 @@
-const dns = require('dns');
+const repl = require('repl');
 
-dns.lookup('google.com', (err, address, family) => {
+repl.start({
 
-if (err) throw err;
+prompt:
 
-console.log('Address: %j family: IPv%s' address, family);
-});
+'Enter a number to check if it\'s odd or even >
 
-dns.reverse('8.8.8.8', (err, hostnames) => {
+eval: (input) => {
 
-if (err) throw err;
+let number = parseInt(input.trim());
 
-console.log('Reverse lookup for 8.8.8.8:', hostnames);
+if (isNaN(number)) {
+
+console.log(
+
+'Please enter a valid number');
+
+} else if (number % 2 === 0) {
+
+console.log(${number}
+
+is an even number`);
+
+} else {
+
+console.log(${number}
+
+is an odd number`);
+
+ }
+
+}
+
  });
